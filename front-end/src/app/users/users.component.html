@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card" style="width: 50%;">
+    <a class="btn btn-success" href="{{ excelDownloadUrl }}">Excel</a>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">nombre</th>
+            <th scope="col">apellidos</th>
+            <th scope="col">identificacion</th>
+            <th scope="col">FechaNac</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userData; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ user.idUsuario }}</td>
+            <td>{{ user.userName }}</td>
+            <td>{{ user.mail }}</td>
+            <td>{{ user.nombres }}</td>
+            <td>{{ user.apellidos }}</td>
+            <td>{{ user.identificacion }}</td>
+            <td>{{ user.fechaNacimiento }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button (click)="Modal()" type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#registerModal">
+        Registro de Usuario
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showmodal" class="modal fade show d-block" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true" style="background: rgba(0,0,0,0.5);">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+        <button type="button" class="close" aria-label="Close" (click)="Modal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <form (ngSubmit)="Register()">
+                  <div class="form-group">
+                    <input type="email" class="form-control" [(ngModel)]="user.email" name="email" id="email" required placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="user.username" name="username" id="username" required placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" [(ngModel)]="user.password" name="password" id="password" required placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="user.nombres" name="nombres" id="nombres" required placeholder="nombres">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="user.apellidos" name="apellidos" id="apellidos" required placeholder="apellidos">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="user.identificacion" name="identificacion" id="identificacion" required placeholder="identificacion">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="user.fechaNacimiento" name="fechaNacimiento" id="fechaNacimiento" required placeholder="fechaNacimiento">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
+    background-color: #1e1e1e; /* O cualquier otro color que prefieras */
+  }
+  
+  body {
+    padding-top: 56px; /* Ajusta según la altura del navbar */
+  }
+  

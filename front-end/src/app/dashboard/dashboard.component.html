@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card" style="width: 50%;">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">fecha ingreso</th>
+              <th scope="col">fecha cierre</th>
+              <th scope="col">estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userData; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ user.username }}</td>
+              <td>{{ user.mail }}</td>
+              <td>{{ user.fechaingreso }}</td>
+              <td>{{ user.fechacierre }}</td>
+              <td>{{ user.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
